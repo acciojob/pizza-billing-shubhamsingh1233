@@ -52,16 +52,16 @@ public class Pizza {
         else
             pizza=400;
 
-        price=pizza;
+        price+=pizza;
     }
 
     public int getPrice(){
         return this.price;
     }
 
-    public void addExtraCheese(){
+    public void addExtraCheese()
+    {
         extraChees=80;
-        price+=80;
     }
 
     public void addExtraToppings(){
@@ -69,15 +69,21 @@ public class Pizza {
             Toppings=70;
         else
             Toppings=120;
-        price+=Toppings;
     }
 
     public void addTakeaway(){
         paperBag=20;
-        price+=paperBag;
     }
 
     public String getBill(){
+
+        if(extraChees!=0)
+            price+=extraChees;
+        if(Toppings!=0)
+            price+=Toppings;
+        if(paperBag!=0)
+            price+=paperBag;
+
         bill="Base Price Of The Pizza: "+pizza+"\n";
         if(extraChees!=0)
             bill+="Extra Cheese Added: "+extraChees+"\n";
